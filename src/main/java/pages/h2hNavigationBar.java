@@ -48,11 +48,8 @@ public class h2hNavigationBar {
 
        By registerNewCustomerButton = By.partialLinkText("Register");
 
- //TODO - rejig snapshots
-       h2hUtilities.takeSnapShot(driver,"/Users/waynesinclair/Documents/MyProjects/snapshots/snapshot_Register_before loader wait.png");
+       //TODO is the id of Loader correct ?
        h2hWaitForLoaderToDisappear(driver, Loader, 15, "Register button - wait for loader to disappear");
-       h2hUtilities.takeSnapShot(driver,"/Users/waynesinclair/Documents/MyProjects/snapshots/snapshot_Register_after loader wait.png");
-
 
        driver.findElement(registerNewCustomerButton).click();
        //System.exit(1);

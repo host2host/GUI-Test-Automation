@@ -87,7 +87,7 @@ public class h2hScenarios01 {
         Sheet h2hAccountsData = ExcelFileUtilities.readExcel(dataDirectory, AccountsDataFileName, AccountsDataSheetName);
         Sheet h2hClientUserData = ExcelFileUtilities.readExcel(dataDirectory, ClientUserDataFileName, ClientUserDataSheetName);
 
-        // TODO get better wait
+        // TODO get better wait, not recommended to use thread.sleep
         sleep(3000);
         objNavigationBar.clickRegisterNewCustomerButton();
 
