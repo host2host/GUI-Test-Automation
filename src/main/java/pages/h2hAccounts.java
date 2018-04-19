@@ -52,6 +52,7 @@ public class h2hAccounts {
         //preferredSubProduct.selectByVisibleText((row.getCell(7).getStringCellValue()));
 
         driver.findElement(searchBySubProduct).sendKeys((row.getCell(7).getStringCellValue()));
+        System.out.println("Preferred Sub Products="+ row.getCell(7).getStringCellValue());
         //List<WebElement> listItems = driver.findElements(By.className("//ul[@class='ui-select-choices dropdown-menu']//a[@class='dropdown-item']/div"));
         //listItems.get(0).click();
         driver.findElement(searchBySubProduct).sendKeys(Keys.RETURN);

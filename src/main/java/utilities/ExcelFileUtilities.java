@@ -16,6 +16,9 @@ public class ExcelFileUtilities {
 
     public static Sheet readExcel(String filePath, String fileName, String sheetName) throws IOException {
 
+        System.out.println("\nReading data from Excel spreadsheet: " + fileName + "....\n");
+
+
         //Create an object of File class to open xlsx file
         File file = new File(filePath + "/" + fileName);
 

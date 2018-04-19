@@ -20,7 +20,6 @@ public class h2hNavigationBar {
     By saveAccount = By.xpath("//account-form//button[@class='btn btn-primary pull-right']");
     By saveUserButton = By.xpath("//client-user-form//button[@class='btn btn-primary pull-right']");
     By saveProductsButton = By.xpath("//account-form//button[@class='btn btn-primary pull-right']");
-    By sendForApprovalButton = By.xpath("//review-form//button[@class='btn btn-primary']");
     By nextOnOnboarding = By.xpath("//client-information-form//button[@class='btn btn-primary']");
     By stepperStep1Span = By.id("stepper-step_1_span");
     By stepperStep2Span = By.id("stepper-step_2_span");
@@ -28,6 +27,8 @@ public class h2hNavigationBar {
     By stepperStep4Span = By.id("stepper-step_4_span");
     By Loader = By.id("loader");
     By PGPEncryptionSaveButton = By.xpath("//pgp-encryption//button[@class='btn btn-primary pull-right']");
+    By sendForApprovalButton = By.xpath("//review-form//button[@class='btn btn-primary']");
+    By pendingApprovalTab = By.xpath("//*[@id=\"ngb-tab-4\"]");
 
     public h2hNavigationBar(WebDriver driver){
 
@@ -50,7 +51,6 @@ public class h2hNavigationBar {
 
        //TODO is the id of Loader correct ?
        h2hWaitForLoaderToDisappear(driver, Loader, 15, "Register button - wait for loader to disappear");
-
        driver.findElement(registerNewCustomerButton).click();
        //System.exit(1);
 
@@ -112,14 +112,14 @@ public class h2hNavigationBar {
 
     public void clickonStepper2() throws InterruptedException, IOException {
 
-        scrollIntoView(driver,stepperStep2Span);
+        scrollIntoViewNoClick(driver,stepperStep2Span);
         driver.findElement(stepperStep2Span).click();
 
     }
     public void clickonStepper3() throws InterruptedException, IOException {
 
         //TODO This is sometimes flaky, does not find stepper 2 sometimes
-        scrollIntoView(driver,stepperStep3Span);
+        scrollIntoViewNoClick(driver,stepperStep3Span);
         driver.findElement(stepperStep3Span).click();
     }
 
@@ -129,5 +129,16 @@ public class h2hNavigationBar {
         driver.findElement(stepperStep4Span).click();
     }
 
+    public void clickonsendForApprovalButton() throws InterruptedException, IOException {
+
+        scrollIntoViewNoClick(driver,sendForApprovalButton);
+        driver.findElement(sendForApprovalButton).click();
+    }
+
+    public void clickonpendingApprovalTab() throws InterruptedException, IOException {
+
+        scrollIntoViewNoClick(driver,pendingApprovalTab);
+        driver.findElement(pendingApprovalTab).click();
+    }
 
 }

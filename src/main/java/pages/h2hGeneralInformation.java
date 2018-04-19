@@ -53,9 +53,8 @@ public class h2hGeneralInformation  {
 
         Row row = h2hTestDataSheet.getRow(rowno);
 
-
         LegalEntityNameWithDateAndTime = row.getCell(0).getStringCellValue();
-        //LegalEntityNameWithDateAndTime = LegalEntityNameWithDateAndTime + " - " + getDateAndTime();;
+        //LegalEntityNameWithDateAndTime = LegalEntityNameWithDateAndTime + "  -  " + getDateAndTime();;
         driver.findElement(legalEntityName).sendKeys(LegalEntityNameWithDateAndTime);
         driver.findElement(LegaEntityRegistrationNumber).sendKeys(row.getCell(1).getStringCellValue());
         driver.findElement(sourceId).sendKeys(row.getCell(2).getStringCellValue());

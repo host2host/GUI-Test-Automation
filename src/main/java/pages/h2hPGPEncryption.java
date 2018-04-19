@@ -9,6 +9,7 @@ import utilities.h2hUtilities;
 
 import static utilities.h2hUtilities.clickTogglerIfNecessary;
 import static utilities.h2hUtilities.scrollIntoView;
+import static utilities.h2hUtilities.scrollIntoViewNoClick;
 
 public class h2hPGPEncryption {
 
@@ -31,6 +32,8 @@ public class h2hPGPEncryption {
         By PGPEncryptionSaveButton = By.xpath("//pgp-encryption//button[@class='btn btn-primary pull-right']");
 
         h2hUtilities.scrollIntoView(driver, PGPEncryptionToggler);
+
+        //TODO Replace PGPEncryptionToggler with a field inside PGP encryption toggler  *****
         clickTogglerIfNecessary(driver, PGPEncryptionToggler,PGPEncryptionToggler);
 
         h2hUtilities.scrollIntoView(driver, clientPublicKey);
@@ -42,7 +45,6 @@ public class h2hPGPEncryption {
         scrollIntoView(driver, certificateStatus);
         Select selectKeyStatus = new Select(driver.findElement(certificateStatus));
         selectKeyStatus.selectByVisibleText((row.getCell(7).getStringCellValue()));
-        //driver.findElement(certificateStatus).sendKeys(row.getCell(7).getStringCellValue());
 
         String convertForDatePicker = row.getCell(8).getStringCellValue();
 
@@ -54,7 +56,7 @@ public class h2hPGPEncryption {
         scrollIntoView(driver, addPGPEncryption);
         driver.findElement(addPGPEncryption).click();
 
-        scrollIntoView(driver, PGPEncryptionSaveButton);
+        scrollIntoViewNoClick(driver, PGPEncryptionSaveButton);
         driver.findElement(PGPEncryptionSaveButton).click();
 
     }

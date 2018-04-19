@@ -121,6 +121,7 @@ public class h2hScenarios01 {
 
         System.out.println("PushOrPull = " + securityRow.getCell(1).getStringCellValue());
 
+  //TODO accept upper or lower case for push and pull
         String pushOrPull = securityRow.getCell(1).getStringCellValue();
 
         if ((securityRow.getCell(1).getStringCellValue()).equals("Pull")) {
@@ -135,13 +136,18 @@ public class h2hScenarios01 {
             objSFTPPush.populateh2hSFTPPush(h2hSFTPPushData, activeRowNo);
         }
 
+        //TODO Fix up issues with Push or Pull signing options. For now commented out
+
         System.out.println("Signing = " + securityRow.getCell(2).getStringCellValue());
 
         if ((securityRow.getCell(2).getStringCellValue()).equals("PGP")) {
             h2hSFTPPush objSFTPPush;
 
-            objSFTPPush = new h2hSFTPPush(driver);
-            objSFTPPush.populateh2hSFTPPush(h2hSFTPPushData, activeRowNo);
+            //objSFTPPush = new h2hSFTPPush(driver);
+            //objSFTPPush.populateh2hSFTPPush(h2hSFTPPushData, activeRowNo);
+
+            objPGPSigning = new h2hPGPSigning(driver);
+            objPGPSigning.populateh2hPGPSigning(h2hCustomerSecurity, activeRowNo);
         }
 
         if ((securityRow.getCell(2).getStringCellValue()).equals("X509")) {
@@ -198,6 +204,7 @@ public class h2hScenarios01 {
         // objNavigationBar.clickonSendForApprovalButton();
 
     }
+
 
     @Test(priority = 0)
 

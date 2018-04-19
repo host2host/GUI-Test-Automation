@@ -9,6 +9,7 @@ import java.io.IOException;
 
 import static utilities.h2hUtilities.clickTogglerIfNecessary;
 import static utilities.h2hUtilities.scrollIntoView;
+import static utilities.h2hUtilities.scrollIntoViewNoClick;
 
 public class h2hCompression {
 
@@ -28,7 +29,7 @@ public class h2hCompression {
         By zipRadioButton = By.xpath("//compression//input[@value='ZIP']");
         By compressionSaveButton = By.xpath("//compression//button[@class='btn btn-primary']");
 
-        scrollIntoView(driver, compressionToggler);
+        scrollIntoViewNoClick(driver, compressionToggler);
         clickTogglerIfNecessary(driver, compressionToggler, compressionSaveButton);
 
         scrollIntoView(driver, compressionCheckBox);
